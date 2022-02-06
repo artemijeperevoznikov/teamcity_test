@@ -29,9 +29,11 @@ public class AlbumConverterImpl implements AlbumConverter {
     }
 
     private TrackDTO convertTrack(Track track) {
+
         TrackDTO trackDTO = new TrackDTO();
         trackDTO.setName(track.getName());
         trackDTO.setLength(track.getLength());
+
         return trackDTO;
     }
 }
