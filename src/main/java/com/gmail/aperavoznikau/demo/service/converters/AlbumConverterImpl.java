@@ -10,11 +10,13 @@ import java.util.stream.Collectors;
 
 @Component
 public class AlbumConverterImpl implements AlbumConverter {
+
     @Override
     public AlbumDTO convertToDTO(Album album) {
         AlbumDTO albumDTO = new AlbumDTO();
         albumDTO.setName(album.getName());
         albumDTO.setDescription(album.getDescription());
+
         albumDTO.getTracks()
                 .addAll(
                         album.getTracks()
@@ -22,13 +24,16 @@ public class AlbumConverterImpl implements AlbumConverter {
                                 .map(this::convertTrack)
                                 .collect(Collectors.toList())
                 );
+
         return albumDTO;
     }
 
     private TrackDTO convertTrack(Track track) {
+
         TrackDTO trackDTO = new TrackDTO();
         trackDTO.setName(track.getName());
         trackDTO.setLength(track.getLength());
+
         return trackDTO;
     }
 }

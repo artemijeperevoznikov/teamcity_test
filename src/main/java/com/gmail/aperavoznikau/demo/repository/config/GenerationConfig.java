@@ -9,11 +9,11 @@ import org.springframework.stereotype.Component;
 public class GenerationConfig {
 
     @Value("${count.albums}")
-    private int countOfTracks;
+    private Integer countOfTracks;
     @Value("${count.tracks}")
-    private int countOfAlbums;
+    private Integer countOfAlbums;
     @Value("${lenght.tracks.min}")
-    private int trackMinLengthValue;
+    private Integer trackMinLengthValue;
     @Value("${lenght.tracks.max}")
-    private int trackMaxLengthValue;
+    private Integer trackMaxLengthValue;
 }
