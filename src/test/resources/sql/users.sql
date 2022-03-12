@@ -1,0 +1,2 @@
+INSERT INTO users(username, password, role_id) VALUES ('admin', '$2a$12$p5lsHBWsyDGIRT4FOIaH5.rIF2cK/AythZoinaRcLyhHsBGvz377y', 1)
+INSERT INTO users(username, password, role_id) VALUES ('user', '$2a$12$p5lsHBWsyDGIRT4FOIaH5.rIF2cK/AythZoinaRcLyhHsBGvz377y', 2)

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog logicalFilePath="db.changelog-master.xml" xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet id="1" author="aperavoznikau@gmail.com">
+        <createTable tableName="users">
+            <column name="id" type="serial">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="username" type="varchar(100)">
+                <constraints unique="true"/>
+            </column>
+            <column name="password" type="varchar(100)">
+            </column>
+            <column name="role_id" type="int">
+            </column>
+        </createTable>
+        <createTable tableName="roles">
+            <column name="id" type="serial">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(100)">
+                <constraints unique="true"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="users"
+                                 baseColumnNames="role_id"
+                                 constraintName="role_id_constrain"
+                                 referencedTableName="roles"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+    <changeSet id="2" author="aperavoznikau@gmail.com">
+        <insert tableName="roles">
+            <column name="name" value="ROLE_ADMIN"/>
+        </insert>
+        <insert tableName="roles">
+            <column name="name" value="ROLE_USER"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
