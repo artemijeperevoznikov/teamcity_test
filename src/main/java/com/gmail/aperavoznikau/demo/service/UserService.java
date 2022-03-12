@@ -5,11 +5,15 @@ import com.gmail.aperavoznikau.demo.service.model.UserDTO;
 import java.util.List;
 
 public interface UserService {
-    List<UserDTO> getUsers();
+    List<UserDTO> findAll();
 
-    UserDTO getUser(Long id);
+    UserDTO findById(Long id);
 
     UserDTO add(UserDTO user);
 
-    boolean isUniqueUsername(String value);
+    boolean isUniqueUsername(String username);
+
+    UserDTO findByUsername(String username);
+
+    boolean isValidUser(String username, String password);
 }
